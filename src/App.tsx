@@ -1,7 +1,8 @@
 import React, { FC } from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools/build/lib/devtools'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { MainTask } from './components/MainTask'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -16,7 +17,11 @@ const App: FC = () => {
   return (
     <div className="flex justify-center items-center flex-col min-h-screen text-gray-600 text-sm font-mono">
       <QueryClientProvider client={queryClient}>
-        <BrowserRouter></BrowserRouter>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<MainTask />} />
+          </Routes>
+        </BrowserRouter>
         <ReactQueryDevtools />
       </QueryClientProvider>
     </div>
