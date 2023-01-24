@@ -9,7 +9,7 @@ type Props = {
   task: Task
 }
 
-export const TaskItem: FC<Props> = ({ task }) => {
+const TaskItem: FC<Props> = ({ task }) => {
   const dispatch = useAppDispatch()
   const { deleteTaskMutation } = useMutateTask()
   console.log('rendered TaskItem')
@@ -47,3 +47,5 @@ export const TaskItem: FC<Props> = ({ task }) => {
     </li>
   )
 }
+
+export const TaskItemMemo = memo(TaskItem)
